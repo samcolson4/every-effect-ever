@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_18_112917) do
+ActiveRecord::Schema.define(version: 2022_01_19_234258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clones", force: :cascade do |t|
+    t.bigint "original_effect_id", null: false
+    t.bigint "effect_clone_id", null: false
+    t.string "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["effect_clone_id"], name: "index_clones_on_effect_clone_id"
+    t.index ["original_effect_id"], name: "index_clones_on_original_effect_id"
+  end
 
   create_table "effects", force: :cascade do |t|
     t.string "name"
@@ -35,8 +45,11 @@ ActiveRecord::Schema.define(version: 2022_01_18_112917) do
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "colours", default: [], array: true
     t.index ["effect_id"], name: "index_versions_on_effect_id"
   end
 
+  add_foreign_key "clones", "versions", column: "effect_clone_id"
+  add_foreign_key "clones", "versions", column: "original_effect_id"
   add_foreign_key "versions", "effects"
 end
