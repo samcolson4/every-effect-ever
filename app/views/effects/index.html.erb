@@ -7,3 +7,44 @@
 <br>
 <p>* citation needed.</p>
 <br><br>
+
+<table class="effect-table">
+<% @four_random.each { |pedal| %>
+  <tr>
+  <th><h1><%= pedal.name %></h1></th>
+  </tr>
+  <tr>
+    <th>Type </th>
+    <th><%= pedal.versions[-1].effect_type %></th>
+  </tr>
+  <tr>
+    <th>Brand</th>
+    <% brand = findBrand(pedal.brand_id)%>
+    <th><%= brand.name %></th>
+  </tr>
+  <tr>
+  <th>Format </th>
+  <th><%= pedal.versions[-1].effect_format %></th>
+  </tr>
+
+  <tr>
+  <th>Released</th>
+  <th><%= pedal.versions[-1].year_released %></th>
+  </tr>
+
+  <tr>
+  <th>Colour</th>
+  <th><%= pedal.versions[-1].colours[0] %> </th>
+  </tr>
+
+  <tr>
+  <th>Manufcatured</th>
+  <th><%= pedal.versions[-1].
+  manufacturing_location_current %> </th>
+  </tr>
+  <tr>
+  <th>Originated</th>
+  <th><%= pedal.versions[-1].country_of_origin %> </th>
+  </tr>
+  <% } %>
+</table>

@@ -54,9 +54,22 @@ button:hover {
 }
 
 #site-header {
-  width:100%;
+  width:60%;
 }
 
 .button_to {
   display: inline-block;
+}
+
+.effect-table {
+  width:50%;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+}
+
+.effect-table h1 {
+  text-decoration: underline;
+  text-decoration-color: orange;
+  text-decoration-thickness: 0.2em;
 }
