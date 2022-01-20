@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+body {
+ font-family: 'Open Sans', sans-serif;
+}
+
+.page-header {
+  /* font-size: 75px; */
+  font-size: 500%;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 0.5em;
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+}
