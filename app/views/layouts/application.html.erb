@@ -14,15 +14,13 @@
   </head>
 
   <body>
-    <div class="site-header">
+    <div id="site-header">
       <h1>everyeffectever.org</h1>
-      <div id="buttons">
-        <%= button_to :effects, effects_path, :method => "get" %>
-        <%= button_to :clones, clones_path, :method => "get" %>
-        <%= button_to :support, :method => "get" %>
-        <%= button_to :contribute, :method => "get" %>
-        <%= button_to :about, :method => "get" %>
-      </div>
+        <%= button_to :Effects, effects_path, :method => "get" %>
+        <%= button_to :Brands, brands_path, :method => "get" %>
+        <%= button_to :Clones, clones_path, :method => "get" %>
+        <%= button_to :Contribute, :method => "get" %>
+        <%= button_to :About, :method => "get" %>
     </div>
 
     <%= yield %>
