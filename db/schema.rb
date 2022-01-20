@@ -15,10 +15,21 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.integer "year_founded"
+    t.string "location_founded"
+    t.string "logo_image_link"
+    t.string "website_link"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "clones", force: :cascade do |t|
     t.bigint "original_effect_id", null: false
     t.bigint "effect_clone_id", null: false
-    t.string "notes"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["effect_clone_id"], name: "index_clones_on_effect_clone_id"
@@ -26,11 +37,14 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
   end
 
   create_table "effects", force: :cascade do |t|
+    t.bigint "brand_id"
     t.string "name"
-    t.string "brand"
     t.integer "page_views"
+    t.string "image_link"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["brand_id"], name: "index_effects_on_brand_id"
   end
 
   create_table "versions", force: :cascade do |t|
@@ -52,5 +66,6 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
 
   add_foreign_key "clones", "versions", column: "effect_clone_id"
   add_foreign_key "clones", "versions", column: "original_effect_id"
+  add_foreign_key "effects", "brands"
   add_foreign_key "versions", "effects"
 end
