@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get '/effects/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  root "effects#index"
+  root "brands#index"
+  get '/effects', to: "effects#index"
+  get '/brands', to: "brands#index"
+  get '/clones', to: "clones#index"
 end
