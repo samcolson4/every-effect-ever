@@ -6,6 +6,7 @@ class Brands < ActiveRecord::Migration[7.0]
       t.string :location_founded
       t.string :logo_image_link
       t.string :website_link
+      t.string :parent_company
       t.text :notes
       
       t.timestamps
