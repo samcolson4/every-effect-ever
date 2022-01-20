@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
     t.string "location_founded"
     t.string "logo_image_link"
     t.string "website_link"
+    t.string "parent_company"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
