@@ -8,17 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <div class="site-header">
-      <h2>everyeffectever</h2>
-      <%= link_to :effects, "/effects" %> | <%= link_to :clones, "/clones" %> | <%= link_to :about, "/about" %> 
+      <h1>everyeffectever.org</h1>
+      <div id="buttons">
+        <%= button_to :effects, effects_path, :method => "get" %>
+        <%= button_to :clones, clones_path, :method => "get" %>
+        <%= button_to :support, :method => "get" %>
+        <%= button_to :contribute, :method => "get" %>
+        <%= button_to :about, :method => "get" %>
+      </div>
     </div>
 
     <%= yield %>
+
   </body>
 </html>
