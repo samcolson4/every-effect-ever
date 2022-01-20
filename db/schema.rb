@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
 
   create_table "versions", force: :cascade do |t|
     t.bigint "effect_id"
+    t.string "format"
     t.string "version_name"
     t.integer "version_iteration"
     t.integer "year_released"
@@ -42,10 +43,10 @@ ActiveRecord::Schema.define(version: 2022_01_19_234258) do
     t.string "manufacturing_location_current"
     t.string "manufacturing_location_former"
     t.string "country_of_origin"
+    t.string "colours", default: [], array: true
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "colours", default: [], array: true
     t.index ["effect_id"], name: "index_versions_on_effect_id"
   end
 

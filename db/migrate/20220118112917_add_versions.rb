@@ -2,6 +2,7 @@ class AddVersions < ActiveRecord::Migration[7.0]
   def change
     create_table :versions do |t|
       t.belongs_to :effect, index: true, foreign_key: true
+      t.string :format
       t.string :version_name
       t.integer :version_iteration
       t.integer :year_released
@@ -9,6 +10,8 @@ class AddVersions < ActiveRecord::Migration[7.0]
       t.string :manufacturing_location_current
       t.string :manufacturing_location_former
       t.string :country_of_origin
+      t.string :colours, array: true, default: []
+
       t.text :notes
 
       t.timestamps
