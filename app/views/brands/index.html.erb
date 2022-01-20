@@ -8,7 +8,10 @@
 <p>* citation needed.</p>
 <br><br>
 
-<h1>Effects</h1>
-<% @effects.each { | effect|  %>
+<h1>Brands</h1>
+<% @brands.each { |brand|  %>
+<%= brand.name %>
+<% brand.effects.each { |effect| %> 
 <%= effect.name %>
+<% } %>
 <% } %>
