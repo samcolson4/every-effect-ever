@@ -15,12 +15,12 @@
 
   <body>
     <div id="site-header">
-      <h1>everyeffectever.org</h1>
+      <h1>Every Effect Ever (.org)</h1>
         <%= button_to :Effects, effects_path, :method => "get" %>
         <%= button_to :Brands, brands_path, :method => "get" %>
         <%= button_to :Variants, variants_path, :method => "get" %>
         <%= button_to :Contribute, :method => "get" %>
-        <%= button_to :About, :method => "get" %>
+        <%= button_to :About, about_path, :method => "get" %>
     </div>
 
     <%= yield %>
