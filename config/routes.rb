@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get '/variants', to: "variants#index"
   get '/about', to: "about#index"
   get '/contribute', to: "contribute#index"
+  get '/contribute/brand', to: "contribute#brand"
+
+  post '/contribute/brand', to: "brands#create"
 end
