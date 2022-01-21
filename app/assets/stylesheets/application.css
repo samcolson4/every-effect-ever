@@ -46,11 +46,16 @@ button {
   background-color: white;
   border: 1px solid black;
   font-size: 100%;
+  transition: 0.3s;
 }
 
 button:hover {
   background-color: yellow;
   cursor: pointer;
+}
+
+th {
+  border-top: 1.5px solid black;
 }
 
 #site-header {
@@ -62,10 +67,10 @@ button:hover {
 }
 
 .effect-table {
-  width:50%;
+  /* width: 60%; */
   text-align: left;
-  border-collapse: separate;
-  border-spacing: 0px 5px;
+  /* border-collapse: separate; */
+  /* border-spacing: 0px 20px; */
 }
 
 .effect-table h1 {

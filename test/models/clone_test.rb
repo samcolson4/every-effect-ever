@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CloneTest < ActiveSupport::TestCase
+class VariantTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

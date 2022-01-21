@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(version: 2022_01_20_231244) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "clones", force: :cascade do |t|
+  create_table "variants", force: :cascade do |t|
     t.bigint "original_effect_id", null: false
-    t.bigint "effect_clone_id", null: false
+    t.bigint "effect_variant_id", null: false
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["effect_clone_id"], name: "index_clones_on_effect_clone_id"
-    t.index ["original_effect_id"], name: "index_clones_on_original_effect_id"
+    t.index ["effect_variant_id"], name: "index_variants_on_effect_variant_id"
+    t.index ["original_effect_id"], name: "index_variants_on_original_effect_id"
   end
 
   create_table "effects", force: :cascade do |t|
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_231244) do
     t.index ["effect_id"], name: "index_versions_on_effect_id"
   end
 
-  add_foreign_key "clones", "versions", column: "effect_clone_id"
-  add_foreign_key "clones", "versions", column: "original_effect_id"
+  add_foreign_key "variants", "versions", column: "effect_variant_id"
+  add_foreign_key "variants", "versions", column: "original_effect_id"
   add_foreign_key "effects", "brands"
   add_foreign_key "versions", "effects"
 end
