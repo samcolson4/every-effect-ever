@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/about', to: "about#index"
   get '/contribute', to: "contribute#index"
   get '/contribute/brand', to: "contribute#brand"
+  get '/contribute/thank-you', to: "contribute#thank-you"
 
   post '/contribute/brand', to: "brands#create"
 end

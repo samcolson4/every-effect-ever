@@ -6,6 +6,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     @brand.save
+    redirect_to "/contribute/thank-you"
   end
 
   private
