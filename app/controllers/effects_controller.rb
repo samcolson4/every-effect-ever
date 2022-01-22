@@ -11,4 +11,15 @@ class EffectsController < ApplicationController
       @four_random.append(Effect.find_by(id: pedal_id))
     }
   end
+
+  def create
+    @effect = Effect.new(effect_params)
+    @effect.save
+    redirect_to "/contribute/version"
+  end
+
+  private
+    def effect_params
+      params.permit(:name, :brand_id, :image_link, :notes)
+    end
 end

@@ -1,4 +1,4 @@
 class Effect < ApplicationRecord
   has_many :versions
-  belongs_to :brands
+  belongs_to :brand
 end

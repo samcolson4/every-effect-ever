@@ -2,18 +2,25 @@
 <%= form_with model: @brand do |form| %>
   <h2>Brand name</h2>
   <%= form.text_field :name %>
+
   <h2>Year founded</h2>
   <%= form.number_field :year_founded %>
+
   <h2>Location founded</h2>
   <%= form.text_field :location_founded %>
+
   <h2>Link to brand logo</h2>
   <%= form.text_field :logo_image_link %>
+
   <h2>Link to official website</h2>
   <%= form.text_field :website_link %>
+
   <h2>Parent company</h2>
   <%= form.text_field :parent_company %>
+
   <h2>Any other notes?</h2>
   <%= form.text_field :notes %>
+
   <br>
   <%= form.submit "Add brand" %>
 <% end %>

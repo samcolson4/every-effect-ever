@@ -1,0 +1,18 @@
+<h1>Add an effect</h1>
+
+<%= form_with model: @effect do |form| %>
+  <h2>Effect name</h2>
+  <%= form.text_field :name %>
+
+  <h2>Brand</h2>
+  <%= select("brand", "brand_id", Brand.pluck(:name, :id), { prompt: true }) %>
+
+  <h2>Link to effect image</h2>
+  <%= form.text_field :image_link %>
+
+  <h2>Any other notes?</h2>
+  <%= form.text_field :notes %>
+
+  <br>
+  <%= form.submit "Add effect" %>
+<% end %>

@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  root "brands#index"
+  # Main pages
+  root "about#index"
   get '/effects', to: "effects#index"
   get '/brands', to: "brands#index"
   get '/variants', to: "variants#index"
   get '/about', to: "about#index"
   get '/contribute', to: "contribute#index"
+
+  # Contributing get
   get '/contribute/brand', to: "contribute#brand"
+  get '/contribute/effect', to: "contribute#effect"
+  get '/contribute/version', to: "contribute#version"
   get '/contribute/thank-you', to: "contribute#thank-you"
 
+  # Contributing post
   post '/contribute/brand', to: "brands#create"
+  post '/contribute/effect', to: "effects#create"
+  post '/contribute/version', to: "contribute#create"
+
 end
