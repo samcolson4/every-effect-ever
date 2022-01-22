@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_231244) do
+ActiveRecord::Schema.define(version: 2022_01_22_074433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(version: 2022_01_20_231244) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "variants", force: :cascade do |t|
-    t.bigint "original_effect_id", null: false
-    t.bigint "effect_variant_id", null: false
-    t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["effect_variant_id"], name: "index_variants_on_effect_variant_id"
-    t.index ["original_effect_id"], name: "index_variants_on_original_effect_id"
-  end
-
   create_table "effects", force: :cascade do |t|
     t.bigint "brand_id"
     t.string "name"
@@ -46,6 +36,17 @@ ActiveRecord::Schema.define(version: 2022_01_20_231244) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_effects_on_brand_id"
+  end
+
+  create_table "variants", id: :bigint, default: -> { "nextval('clones_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "original_effect_id", null: false
+    t.bigint "effect_clone_id", null: false
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_clone"
+    t.index ["effect_clone_id"], name: "index_clones_on_effect_clone_id"
+    t.index ["original_effect_id"], name: "index_clones_on_original_effect_id"
   end
 
   create_table "versions", force: :cascade do |t|
@@ -63,11 +64,15 @@ ActiveRecord::Schema.define(version: 2022_01_20_231244) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "effect_type"
+    t.decimal "length"
+    t.decimal "width"
+    t.decimal "height"
+    t.text "subjects", default: [], array: true
     t.index ["effect_id"], name: "index_versions_on_effect_id"
   end
 
-  add_foreign_key "variants", "versions", column: "effect_variant_id"
-  add_foreign_key "variants", "versions", column: "original_effect_id"
   add_foreign_key "effects", "brands"
+  add_foreign_key "variants", "versions", column: "effect_clone_id"
+  add_foreign_key "variants", "versions", column: "original_effect_id"
   add_foreign_key "versions", "effects"
 end
