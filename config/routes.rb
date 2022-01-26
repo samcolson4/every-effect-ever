@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   get '/contribute', to: "contribute#index"
 
   # Contributing get
-  get '/contribute/brand', to: "contribute#brand"
+  get '/brands/contribute', to: "brands#contribute"
   get '/contribute/effect', to: "contribute#effect"
   get '/contribute/version', to: "contribute#version"
   get '/contribute/thank-you', to: "contribute#thank-you"
 
   # Contributing post
-  post '/contribute/brand', to: "brands#create"
+  post '/brands', to: "brands#create"
   post '/contribute/effect', to: "effects#create"
-  post '/contribute/version', to: "contribute#create"
+  post '/contribute/version', to: "version#create"
 
 end
