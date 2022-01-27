@@ -1,22 +1,24 @@
 <h1>Add a brand</h1>
-<%= simple_form_for @brand do |f| %>
-  <%= f.input :name, required: true, label: "The brand's name", error: 'Brand name is mandatory, please specify one', input_html: { value: params[:name] } %>
+<div class="">
+  <%= simple_form_for @brand do |f| %>
+    <%= f.input :name, required: true, label: "Brand name", error: 'Brand name is mandatory, please specify one'%>
 
-  <%= f.input :year_founded %>
+    <%= f.input :year_founded, label: "Year founded"%>
 
-  <%= f.country_select :location_founded, [], :selected => "United
-States" %>
+    <%= f.country_select :country_founded, label: "Country of origin"%>
 
-  <%= f.input :logo_image_link %>
+    <%= f.input :area_founded, label: "The town, city, or province of origin" %>
 
-  <%= f.input :website_link %>
+    <%= f.input :logo_image_link, label: "Brand logo" %>
 
-  <%= f.input :parent_company %>
+    <%= f.input :website_link, label: "Brand website" %>
 
-  <%= f.input :notes %>
+    <%= f.input :parent_company, label: "Parent company" %>
 
-  <br>
-  <%= f.button :submit %>
-<% end %>
+    <%= f.input :notes, label: "Notes" %>
 
+    <br>
+    <%= f.button :submit %>
+  <% end %>
+</div>
 <br><br>

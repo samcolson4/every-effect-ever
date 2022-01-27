@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_074433) do
+ActiveRecord::Schema.define(version: 2022_01_27_225049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "year_founded"
-    t.string "location_founded"
     t.string "logo_image_link"
     t.string "website_link"
     t.string "parent_company"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "country_founded"
+    t.string "area_founded"
   end
 
   create_table "effects", force: :cascade do |t|
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_01_22_074433) do
     t.decimal "length"
     t.decimal "width"
     t.decimal "height"
-    t.text "subjects", default: [], array: true
+    t.text "sources", default: [], array: true
     t.index ["effect_id"], name: "index_versions_on_effect_id"
   end
 
