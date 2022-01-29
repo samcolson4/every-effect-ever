@@ -2,10 +2,10 @@
 <h1>Add a brand</h1>
 <br>
   <%= simple_form_for @brand do |f| %>
-    <%= f.input :name, label: "Name *", error: 'Brand name is mandatory, please specify one'%>
+    <%= f.input :name, label: "Name", error: 'Brand name is mandatory, please specify one', required: true %>
     <br>
 
-    <%= f.input :website_link, label: "Official website *" %>
+    <%= f.input :website_link, label: "Official website", required: true %>
     <br>
 
     <%= f.input :year_founded, label: "Year founded"%>
