@@ -1,0 +1,55 @@
+.contribute-form h1 {
+  font-size: 300%;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 0.5em;
+}
+
+.contribute-form label {
+  display: block;
+  font-size: 133%;
+  font-weight: lighter;
+}
+
+.contribute-form input {
+  padding-top: 0.66em;
+  padding-bottom: 0.66em;
+  min-width: 40%;
+  max-width: 10em;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 100%;
+  font-weight: lighter;
+}
+
+.contribute-form textarea {
+  padding-top: 0.33em;
+  padding-bottom: 2em;
+  min-width: 40%;
+  max-width: 10em;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.contribute-form .btn {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 6em;
+  padding-right: 6em;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: white;
+  transition: 0.5s;
+  font-weight: bolder;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+}
+
+.contribute-form .btn:hover {
+  background-color: yellow;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.contribute-form select {
+  width: 40%;
+}
