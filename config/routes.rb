@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
   # Contributing get
   get '/brands/contribute', to: "brands#contribute"
-  get '/contribute/effect', to: "contribute#effect"
-  get '/contribute/version', to: "contribute#version"
+  get '/effects/contribute', to: "effects#contribute"
+  get '/versions/contribute', to: "versions#contribute"
   get '/contribute/thank-you', to: "contribute#thank-you"
 
   # Contributing post
   post '/brands', to: "brands#create"
-  post '/contribute/effect', to: "effects#create"
-  post '/contribute/version', to: "version#create"
+  post '/effects', to: "effects#create"
+  post '/versions', to: "versions#create"
 
 end

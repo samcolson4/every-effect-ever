@@ -14,12 +14,21 @@ class EffectsController < ApplicationController
 
   def create
     @effect = Effect.new(effect_params)
-    @effect.save
-    redirect_to "/contribute/version"
+    if hasName(@effect)
+      @effect.save
+      redirect_to "/versions/contribute"
+    else
+      redirect_to "/effects/contribute"
+      #TODO flash message re: required params
+    end
   end
 
   private
     def effect_params
-      params.permit(:name, :brand_id, :image_link, :notes)
+      params.require(:effect).permit(:name, :brand_id, :image_link, :notes)
+    end
+
+    def hasName(object)
+      object.name != ""
     end
 end
