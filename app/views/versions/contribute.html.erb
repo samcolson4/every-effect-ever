@@ -1,0 +1,21 @@
+<div class="contribute-form">
+<h1>Add information about a version</h1>
+<br>
+  <%= simple_form_for @effect do |f| %>
+    <%= f.association :brand, label: "Brand" %>
+    <p>Brand not listed? <%= link_to "Add one here.", "/brands/contribute" %></p>
+    <br>
+
+    <%= f.input :name, label: "* Name", error: 'Effect name is mandatory, please specify one'%>
+    <br>
+
+    <%= f.input :image_link, label: "Image (URL)" %>
+    <br>
+
+    <%= f.input :notes, label: "Notes" %>
+    <br>
+
+    <%= f.button :submit, 'Create effect' %>
+  <% end %>
+</div>
+<br><br>
