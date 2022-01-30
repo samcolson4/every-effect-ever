@@ -8,34 +8,34 @@
   <br>
 <% end %>
 
-  <%= simple_form_for @brand do |f| %>
-    <%= f.input :name, label: "Name", error: 'Brand name is mandatory, please specify one', required: true %>
-    <br>
+<%= simple_form_for @brand do |f| %>
+  <%= f.input :name, label: "Name", error: 'Brand name is mandatory, please specify one', required: true %>
+  <br>
 
-    <%= f.input :website_link, label: "Official website", required: true %>
-    <br>
+  <%= f.input :website_link, label: "Official website", required: true %>
+  <br>
 
-    <%= f.input :year_founded, label: "Year founded"%>
-    <br>
+  <%= f.input :year_founded, label: "Year founded"%>
+  <br>
 
-    <label>Country of origin </label>
-    <%= f.country_select :country_founded %>
-    <br>
-    <br>
+  <label>Country of origin </label>
+  <%= f.country_select :country_founded %>
+  <br>
+  <br>
 
-    <%= f.input :area_founded, label: "Town / city / province of origin" %>
-    <br>
+  <%= f.input :area_founded, label: "Town / city / province of origin" %>
+  <br>
 
-    <%= f.input :logo_image_link, label: "Logo (URL)" %>
-    <br>
+  <%= f.input :logo_image_link, label: "Logo (URL)" %>
+  <br>
 
-    <%= f.input :parent_company, label: "Parent company" %>
-    <br>
+  <%= f.input :parent_company, label: "Parent company" %>
+  <br>
 
-    <%= f.input :notes, label: "Notes" %>
+  <%= f.input :notes, label: "Notes" %>
 
-    <br>
-    <%= f.button :submit %>
-  <% end %>
-</div>
+  <br>
+  <%= f.button :submit %>
+<% end %>
+
 <br><br>

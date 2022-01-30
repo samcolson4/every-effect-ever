@@ -16,10 +16,9 @@ class EffectsController < ApplicationController
     @effect = Effect.new(effect_params)
     if hasName(@effect)
       @effect.save
-      redirect_to "/versions/contribute"
+      redirect_to "/versions/contribute", notice: "#{@effect.name} added to the database.\n Please provide more information on the effect in this form."
     else
-      redirect_to "/effects/contribute"
-      #TODO flash message re: required params
+      redirect_to "/effects/contribute", alert: "Error adding effect.\n Ensure all required fields are filled and it is not already in the database."
     end
   end
 

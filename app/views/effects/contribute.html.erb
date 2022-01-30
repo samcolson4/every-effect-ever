@@ -1,21 +1,30 @@
 <div class="contribute-form">
 <h1>Add an effect</h1>
+
 <br>
-  <%= simple_form_for @effect do |f| %>
-    <%= f.association :brand, label: "Brand" %>
-    <p>Brand not listed? <%= link_to "Add one here.", "/brands/contribute" %></p>
-    <br>
 
-    <%= f.input :name, label: "* Name", error: 'Effect name is mandatory, please specify one'%>
-    <br>
+<% flash.each do |type, msg| %>
+  <div class="flash-<%=type%>">
+      <%= msg %>
+  </div>
+  <br>
+<% end %>
 
-    <%= f.input :image_link, label: "Image (URL)" %>
-    <br>
+<%= simple_form_for @effect do |f| %>
+  <%= f.association :brand, label: "Brand" %>
+  <p>Brand not listed? <%= link_to "Add one here.", "/brands/contribute" %></p>
+  <br>
 
-    <%= f.input :notes, label: "Notes" %>
-    <br>
+  <%= f.input :name, label: "* Name", error: 'Effect name is mandatory, please specify one'%>
+  <br>
 
-    <%= f.button :submit, 'Create effect' %>
-  <% end %>
-</div>
+  <%= f.input :image_link, label: "Image (URL)" %>
+  <br>
+
+  <%= f.input :notes, label: "Notes" %>
+  <br>
+
+  <%= f.button :submit, 'Create effect' %>
+<% end %>
+
 <br><br>
