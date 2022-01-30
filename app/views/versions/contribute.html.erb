@@ -11,21 +11,69 @@
 <% end %>
 
 
-<%= simple_form_for @effect do |f| %>
-  <%= f.association :brand, label: "Brand" %>
-  <p>Brand not listed? <%= link_to "Add one here.", "/brands/contribute" %></p>
+<%= simple_form_for @version do |f| %>
+  <h2>The basics</h2>
+  <%= f.association :effect, label: "Effect" %>
+  <p>Effect not listed? <%= link_to "Add one here.", "/effects/contribute" %></p>
   <br>
 
-  <%= f.input :name, label: "* Name", error: 'Effect name is mandatory, please specify one'%>
+  <%= f.input :effect_type, label: "Effect type", required: :true %>
+  <p class="example">E.g 'Reverb'</p>
   <br>
 
-  <%= f.input :image_link, label: "Image (URL)" %>
+  <%= f.input :effect_format, label: "Effect format", as: :select, collection: [['Pedal'], ['Rack unit']], required: :true %>
+  <br>
+
+  <h2>Version specifics</h2>
+  <%= f.input :version_name, label: "Version name" %>
+  <p class="example">E.g 'Mk 2'</p>
+  <br>
+
+  <%= f.input :version_iteration, label: "Version iteration" %>
+  <br>
+
+  <%= f.input :colours, label: "Colours (comma separated)" %>
+  <p class="example">All the colours of this version of the effect.</p>
+  <br>
+
+  <h2>Hardware information</h2>
+  <%= f.input :year_released, label: "Year released", collection: 1900..2022 %>
+  <br>
+
+  <%= f.input :year_discontinued, label: "Year discontinued", collection: 1900..2022 %>
+  <br>
+
+  <label>Manufacturing location (current)</label>
+  <%= f.country_select :manufacturing_location_current %>
+  <br>
+  <br>
+
+  <label>Manufacturing location (former)</label>
+  <%= f.country_select :manufacturing_location_former %>
+  <br>
+  <br>
+
+  <h2>Dimensions</h2>
+  <p class="example">The measurements of the effect, in centimetres (cm).</p>
+
+  <%= f.input :length, label: "Length", as: :decimal%>
+  <br>
+
+  <%= f.input :width, label: "Width", as: :decimal%>
+  <br>
+
+  <%= f.input :height, label: "Height", as: :decimal%>
+  <br>
+
+  <h2>Other</h2>
+  <%= f.input :sources, label: "Sources (urls, comma separated)" %>
+  <p class="example">This could include the manufacturer's website, or a link to a YouTube video discussing the unit.</p>
   <br>
 
   <%= f.input :notes, label: "Notes" %>
   <br>
 
-  <%= f.button :submit, 'Create effect' %>
+  <%= f.button :submit, 'Add version' %>
 <% end %>
 
 <br><br>
