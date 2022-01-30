@@ -11,3 +11,14 @@ def add_brand
 
   click_button "Create Brand"
 end
+
+def add_effect
+  visit "/effects/contribute"
+
+  select "test brand", :from => "effect_brand_id"
+  fill_in "effect_name", with: "test effect"
+  fill_in "effect_image_link", with: "testeffectimage.org/jpg"
+  fill_in "effect_notes", with: "This is a test note"
+
+  click_button "Create effect"
+end
