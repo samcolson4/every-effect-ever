@@ -8,10 +8,9 @@ class BrandsController < ApplicationController
 
     if hasName(@brand)
       @brand.save
-      redirect_to "/contribute/thank-you"
+      redirect_to "/contribute/thank-you", notice: "#{@brand.name} added to the database."
     else
-      redirect_to "/brands/contribute"
-      # TODO add flash message re: required
+      redirect_to "/brands/contribute", alert: "Error adding brand.\n Ensure all required fields are filled and the brand is not already in the database."
     end
 
   end

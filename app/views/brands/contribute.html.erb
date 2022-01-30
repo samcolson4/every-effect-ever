@@ -1,6 +1,13 @@
 <div class="contribute-form">
 <h1>Add a brand</h1>
 <br>
+<% flash.each do |type, msg| %>
+  <div class="flash-<%=type%>">
+      <%= msg %>
+  </div>
+  <br>
+<% end %>
+
   <%= simple_form_for @brand do |f| %>
     <%= f.input :name, label: "Name", error: 'Brand name is mandatory, please specify one', required: true %>
     <br>

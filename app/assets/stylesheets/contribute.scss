@@ -57,3 +57,19 @@
 .contribute-form select {
   width: 40%;
 }
+
+.flash-notice {
+  font-size: larger;
+  font-weight: lighter;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 1em;
+}
+
+.flash-alert {
+  font-size: larger;
+  font-weight: lighter;
+  border: 2px solid red;
+  border-radius: 4px;
+  padding: 1em;
+}

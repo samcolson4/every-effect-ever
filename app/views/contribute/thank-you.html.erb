@@ -1,3 +1,11 @@
 <div class="page-header">
   <h1>Thank you for contributing.</h1>
 </div>
+
+<br>
+
+<% flash.each do |type, msg| %>
+  <div class="flash-<%=type%>">
+      <%= msg %>
+  </div>
+<% end %>
